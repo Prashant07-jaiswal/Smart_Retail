@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Generated self-signed TLS certs (regenerate per-IP via scripts/set-network.js)
+certs/
+
+# Build output
+dist/
+build/
+
+# Environment files (never commit real secrets)
+.env
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Test artifacts
+frontend/coverage/

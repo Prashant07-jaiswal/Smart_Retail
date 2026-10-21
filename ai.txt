@@ -1,0 +1,2 @@
+cd Csrsmart-retailai-service
+uvicorn mainapp --host 0.0.0.0 --port 8000 --ssl-keyfile ..certskey.pem --ssl-certfile ..certscert.pem
