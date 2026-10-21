@@ -1,0 +1,147 @@
+.gemma-chatbot {
+  --gemma-green: #24462e;
+  --gemma-gold: #d9a21b;
+  --gemma-ink: #17251b;
+  --gemma-muted: #69766d;
+  --gemma-border: #e1e7e1;
+  font-family: inherit;
+}
+
+.gemma-chat-launcher {
+  position: fixed;
+  z-index: 1200;
+  right: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 58px;
+  height: 58px;
+  padding: 0 19px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gemma-green);
+  color: #fff;
+  box-shadow: 0 8px 28px rgb(20 40 25 / 24%);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.gemma-chat-launcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 32px rgb(20 40 25 / 30%);
+}
+
+.gemma-chat-launcher > span:first-child { color: #f3cb62; font-size: 1.35rem; }
+.gemma-chat-launcher.is-open { min-width: 48px; width: 48px; height: 48px; padding: 0; font-size: 1.8rem; }
+
+.gemma-chat-panel {
+  position: fixed;
+  z-index: 1200;
+  right: 24px;
+  bottom: 94px;
+  display: flex;
+  flex-direction: column;
+  width: min(390px, calc(100vw - 32px));
+  height: min(570px, calc(100dvh - 125px));
+  min-height: 340px;
+  overflow: hidden;
+  border: 1px solid var(--gemma-border);
+  border-radius: 18px;
+  background: #fff;
+  color: var(--gemma-ink);
+  box-shadow: 0 18px 60px rgb(20 35 25 / 22%);
+}
+
+.gemma-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 14px;
+  background: var(--gemma-green);
+  color: #fff;
+}
+
+.gemma-chat-avatar, .gemma-chat-welcome-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 14%);
+  color: #f3cb62;
+  font-weight: 800;
+}
+
+.gemma-chat-heading { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 4px; }
+.gemma-chat-heading strong { font-size: 0.98rem; }
+.gemma-chat-heading > span { display: flex; align-items: center; gap: 6px; color: rgb(255 255 255 / 78%); font-size: 0.73rem; }
+.gemma-chat-heading i { width: 7px; height: 7px; border-radius: 50%; background: #8be0a0; }
+
+.gemma-chat-icon-button {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border: 0;
+  border-radius: 8px;
+  background: rgb(255 255 255 / 10%);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.25rem;
+}
+.gemma-chat-icon-button:hover:not(:disabled) { background: rgb(255 255 255 / 20%); }
+.gemma-chat-icon-button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.gemma-chat-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 13px;
+  overflow-y: auto;
+  padding: 18px 14px;
+  background: #f8faf8;
+  overscroll-behavior: contain;
+}
+
+.gemma-chat-welcome { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; padding: 16px; text-align: center; }
+.gemma-chat-welcome-icon { width: 48px; height: 48px; margin-bottom: 13px; background: #e9f0e9; color: var(--gemma-green); font-size: 1.5rem; }
+.gemma-chat-welcome strong { font-size: 1.05rem; }
+.gemma-chat-welcome p { max-width: 250px; margin: 7px 0 0; color: var(--gemma-muted); font-size: 0.84rem; line-height: 1.5; }
+.gemma-chat-row { display: flex; width: 100%; }
+.gemma-chat-row.is-user { justify-content: flex-end; }
+.gemma-chat-row.is-assistant { justify-content: flex-start; }
+.gemma-chat-bubble { max-width: 86%; padding: 10px 12px; border-radius: 14px; font-size: 0.89rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+.gemma-chat-row.is-assistant .gemma-chat-bubble { border: 1px solid #e5eae5; border-bottom-left-radius: 5px; background: #fff; color: var(--gemma-ink); }
+.gemma-chat-row.is-user .gemma-chat-bubble { border-bottom-right-radius: 5px; background: var(--gemma-green); color: #fff; }
+.gemma-chat-thinking { display: flex; align-items: center; gap: 4px; color: var(--gemma-muted) !important; }
+.gemma-chat-thinking > span { width: 5px; height: 5px; border-radius: 50%; background: var(--gemma-green); animation: gemma-pulse 1s infinite ease-in-out; }
+.gemma-chat-thinking > span:nth-child(2) { animation-delay: 120ms; }
+.gemma-chat-thinking > span:nth-child(3) { animation-delay: 240ms; }
+.gemma-chat-thinking em { margin-left: 5px; font-size: 0.78rem; font-style: normal; }
+@keyframes gemma-pulse { 0%, 60%, 100% { opacity: 0.35; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+.gemma-chat-error { padding: 9px 10px; border: 1px solid #f0c8c5; border-radius: 9px; background: #fff3f2; color: #9b2922; font-size: 0.8rem; line-height: 1.4; }
+
+.gemma-chat-composer { display: flex; align-items: flex-end; gap: 9px; padding: 12px; border-top: 1px solid var(--gemma-border); background: #fff; }
+.gemma-chat-composer textarea { flex: 1; min-width: 0; max-height: 100px; resize: none; padding: 10px 11px; border: 1px solid #dce4dc; border-radius: 11px; outline: none; background: #fbfcfb; color: var(--gemma-ink); font: inherit; font-size: 0.88rem; line-height: 1.4; }
+.gemma-chat-composer textarea:focus { border-color: var(--gemma-green); box-shadow: 0 0 0 2px rgb(36 70 46 / 10%); }
+.gemma-chat-composer textarea:disabled { opacity: 0.7; }
+.gemma-chat-composer button { display: grid; flex: 0 0 auto; place-items: center; width: 39px; height: 39px; border: 0; border-radius: 11px; background: var(--gemma-green); color: #fff; cursor: pointer; font-size: 1.1rem; }
+.gemma-chat-composer button:disabled { background: #aeb9af; cursor: not-allowed; }
+.gemma-chat-footnote { padding: 0 12px 10px; background: #fff; color: #7c877f; font-size: 0.68rem; text-align: center; }
+
+@media (max-width: 520px) {
+  .gemma-chat-launcher { right: 16px; bottom: 16px; min-width: 54px; height: 54px; padding: 0 16px; }
+  .gemma-chat-panel { right: 8px; bottom: 78px; width: calc(100vw - 16px); height: min(620px, calc(100dvh - 95px)); min-height: 300px; border-radius: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gemma-chat-launcher { transition: none; }
+  .gemma-chat-thinking > span { animation: none; }
+}
