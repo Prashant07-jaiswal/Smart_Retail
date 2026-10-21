@@ -1,0 +1,295 @@
+/* ============================================================
+   Smart Retail Intelligence Platform — Design Tokens
+   Direction: an Indian neighbourhood grocery store's own palette —
+   turmeric & spice-market marigold against deep grocer's-green,
+   on a warm paper ground. Fraunces for storefront/receipt moments,
+   Inter for every data-dense screen (owner dashboard, tables, forms).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Color */
+  --color-bg: #F6F3EC;
+  --color-surface: #FFFFFF;
+  --color-surface-sunken: #EFEBE0;
+  --color-ink: #1C2B22;
+  --color-ink-soft: #4B5A4F;
+  --color-border: #E1DBC9;
+
+  --color-primary: #24462E;
+  --color-primary-dark: #16301C;
+  --color-primary-soft: #E3ECE3;
+
+  --color-accent: #D9A21B;
+  --color-accent-dark: #B3830F;
+  --color-accent-soft: #FBEDCB;
+
+  --color-danger: #B3432B;
+  --color-danger-soft: #F7E3DD;
+  --color-success: #2E7D4F;
+  --color-success-soft: #E1F0E5;
+  --color-warning: #C97A1A;
+  --color-warning-soft: #FBEBD4;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(28, 43, 34, 0.06), 0 1px 1px rgba(28, 43, 34, 0.04);
+  --shadow-md: 0 4px 16px rgba(28, 43, 34, 0.08), 0 2px 6px rgba(28, 43, 34, 0.05);
+  --shadow-lg: 0 12px 32px rgba(28, 43, 34, 0.14);
+  --sidebar-width: 240px;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 0.4em 0;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em 0; }
+
+a { color: inherit; text-decoration: none; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-dark);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who ask for it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------- Shared component classes ---------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  padding: 0.65em 1.2em;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) { background: var(--color-primary-dark); }
+
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+.btn-accent:hover:not(:disabled) { background: var(--color-accent-dark); color: #fff; }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-ink);
+}
+.btn-outline:hover:not(:disabled) { border-color: var(--color-primary); background: var(--color-primary-soft); }
+
+.btn-danger {
+  background: var(--color-danger);
+  color: #fff;
+}
+.btn-danger:hover:not(:disabled) { background: #8f3521; }
+
+.btn-sm { padding: 0.4em 0.85em; font-size: 0.82rem; }
+.btn-block { width: 100%; }
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: 0.65em 0.85em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  margin-bottom: 0.35em;
+}
+
+.form-group { margin-bottom: 1.1em; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.badge-pending { background: var(--color-warning-soft); color: var(--color-warning); }
+.badge-accepted { background: var(--color-primary-soft); color: var(--color-primary); }
+.badge-preparing { background: var(--color-accent-soft); color: var(--color-accent-dark); }
+.badge-ready { background: #DDEEF7; color: #1E5F80; }
+.badge-completed { background: var(--color-success-soft); color: var(--color-success); }
+.badge-rejected { background: var(--color-danger-soft); color: var(--color-danger); }
+
+.dot-live {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-success);
+  display: inline-block;
+  position: relative;
+}
+.dot-live::after {
+  content: '';
+  position: absolute; inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-success);
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--color-ink-soft);
+}
+.empty-state h3 { color: var(--color-ink); }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-surface-sunken) 25%, #F8F5EC 37%, var(--color-surface-sunken) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+@keyframes skeleton-loading {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 360px;
+}
+.toast {
+  background: var(--color-ink);
+  color: #fff;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.88rem;
+  animation: toast-in 0.2s ease;
+}
+.toast-success { background: var(--color-success); }
+.toast-error { background: var(--color-danger); }
+.toast-info { background: var(--color-primary-dark); }
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  text-align: left;
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+th { color: var(--color-ink-soft); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+tbody tr:hover { background: var(--color-surface-sunken); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 10px; }
+
+/* ---------------- Print (receipts) ---------------- */
+/* When printing, hide the entire app UI and show ONLY the element marked
+   #receipt-print-area — otherwise "Print receipt" prints the whole page
+   (sidebar, buttons, everything) instead of just the receipt itself. */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #receipt-print-area,
+  #receipt-print-area * {
+    visibility: visible;
+  }
+  #receipt-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    margin: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

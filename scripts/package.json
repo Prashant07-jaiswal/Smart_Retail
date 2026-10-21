@@ -1,0 +1,9 @@
+{
+  "name": "smart-retail-scripts",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local tooling: generate a shared self-signed HTTPS cert and switch the whole project to a given network IP.",
+  "dependencies": {
+    "selfsigned": "^2.4.1"
+  }
+}
